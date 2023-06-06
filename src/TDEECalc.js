@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'rc-slider';
+import SliderGroup from './SliderGroup'
+import Form from './Form'
 import 'rc-slider/assets/index.css';
 
 const originalTDEE = 0;
@@ -24,7 +26,8 @@ Very active *1.9
 -----*/
 
   const calculateTDEE = () => {
-    const bmr = height * weight * age + activityLevel;
+    weight = weight/2.205
+    const bmr = 10;
     return bmr;
   }
 
@@ -42,6 +45,8 @@ Very active *1.9
         <h2>
         You are {age} years old
     </h2>
+    
+
         <Slider
     min={0}
     max={99}
@@ -60,6 +65,7 @@ Very active *1.9
     style = {{width: '33%'}}
     onChange = {value => setWeight(value)}
     />
+    <Form />
     <button className="CalculateButton"
     onClick={clickHandler}
     >Calculate</button>
